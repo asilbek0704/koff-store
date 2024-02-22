@@ -1,5 +1,5 @@
-import { Container } from "../../views/Container/Container";
-import s from "./Catalog.module.scss";
+import { Container } from '../../views/Container/Container';
+import s from './Catalog.module.scss';
 
 export const Catalog = ({ data }) => (
   <nav className={s.catalog}>

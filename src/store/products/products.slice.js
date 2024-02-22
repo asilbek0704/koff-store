@@ -7,47 +7,46 @@ const initialState = {
   error: null,
 };
 
-export const fetchCategories = createAsyncThunk(
-  'categories/fetchCategories',
+export const fetchProducts = createAsyncThunk(
+  'products/fetchProducts',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = state.auth.accessToken;
 
-    const response = await fetch(`${API_URI}api/productCategories`, {
+    const response = await fetch(`${API_URI}api/products`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
     if (!response.ok) {
-      throw new Error('Не удалось получить каталог');
+      throw new Error('Не удалось загрузить товары');
     }
 
     return response.json();
   }
 );
 
-const categorySlice = createSlice({
-  name: 'categories',
+const productsSlice = createSlice({
+  name: 'products',
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: builder =>
     builder
-      .addCase(fetchCategories.pending, state => {
+      .addCase(fetchProducts.pending, state => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchCategories.fulfilled, (state, action) => {
+      .addCase(fetchProducts.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
 
         state.data = action.payload;
       })
-      .addCase(fetchCategories.rejected, (state, action) => {
+      .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
-      });
-  },
+      }),
 });
 
-export default categorySlice.reducer;
+export default productsSlice.reducer

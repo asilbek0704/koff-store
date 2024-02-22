@@ -1,13 +1,13 @@
 .catalog {
   overflow-x: hidden;
-  padding-top: 24px;
+  padding-block: 24px;
 
   @media (min-width: 580px) {
-    padding-top: 32px;
+    padding-block: 32px;
   }
 
   @media (min-width: 820px) {
-    padding-top: 40px;
+    padding-block: 40px;
   }
 }
 .container {

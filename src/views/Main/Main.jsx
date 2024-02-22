@@ -1,8 +1,10 @@
+import s from "./Main.module.scss"
 import { useDispatch, useSelector } from "react-redux";
 import { Goods } from "../../components/Goods/Goods";
-import { fetchCategories } from "../../store/categories/category.slice";
 import { useEffect } from "react";
 import { Catalog } from "../../components/Catalog/Catalog";
+import { fetchCategories } from "../../store/categories/category.slice";
+import { fetchProducts } from "../../store/products/products.slice";
 
 export const Main = () => {
   const dispatch = useDispatch();
@@ -12,17 +14,26 @@ export const Main = () => {
     error: errorCategories,
   } = useSelector((store) => store.categories);
 
+  const {
+    data: dataProducts,
+    loading: loadingProducts,
+    error: errorProducts,
+  } = useSelector((store) => store.products);
+
   useEffect(() => {
     dispatch(fetchCategories());
+    dispatch(fetchProducts())
   }, [dispatch]);
 
-  if (loadingCategories) return <div>Загрузка...</div>;
-  if (errorCategories) return <div>Ошибка {errorCategories}</div>;
+
+  if (loadingCategories || loadingProducts) return <div>Загрузка...</div>;
+  if (errorCategories) return <div>Ошибка: {errorCategories}</div>;
+  if (errorProducts) return <div>Ошибка: {errorProducts}</div>;
 
   return (
-    <main>
+    <main className={s.main}>
       <Catalog data={dataCategories} />
-      <Goods />
+      <Goods data={dataProducts} />
     </main>
   );
 };
