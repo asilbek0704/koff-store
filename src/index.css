@@ -100,3 +100,13 @@ fieldset {
   position: fixed;
   transform: scale(0);
 }
+
+main {
+  padding-bottom: 80px;
+}
+
+@media (min-width: 820px) {
+  main {
+    padding-bottom: 100px;
+  }
+}
