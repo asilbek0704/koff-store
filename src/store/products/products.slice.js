@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { API_URI } from '../../helpers/const';
+import { API_URL } from '../../helpers/const';
 
 const initialState = {
   data: [],
@@ -13,7 +13,7 @@ export const fetchProducts = createAsyncThunk(
     const state = thunkAPI.getState();
     const token = state.auth.accessToken;
 
-    const response = await fetch(`${API_URI}api/products`, {
+    const response = await fetch(`${API_URL}api/products`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -49,4 +49,4 @@ const productsSlice = createSlice({
       }),
 });
 
-export default productsSlice.reducer
+export default productsSlice.reducer;

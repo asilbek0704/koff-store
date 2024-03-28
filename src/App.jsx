@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Footer } from './views/Footer/Footer';
 import { Header } from './views/Header/Header';
+import { Footer } from './views/Footer/Footer';
 import { useEffect } from 'react';
-import { fetchAccessToken } from './store/auth/auth.slice';
+import { fetchAccessToken } from './store/auth/auth.slice.js';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Catalog } from './views/Catalog/Catalog';
 import { Goods } from './views/Goods/Goods';

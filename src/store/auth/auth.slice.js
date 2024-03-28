@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { API_URI } from "../../helpers/const";
+import { API_URL } from "../../helpers/const";
 
 export const fetchAccessToken = createAsyncThunk(
   "auth/fetchAccessToken",
   async () => {
     const response = await fetch(
-      `${API_URI}api/users/accessKey`
+      `${API_URL}api/users/accessKey`
     );
 
     if (!response.ok) {
