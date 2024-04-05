@@ -21,14 +21,13 @@ export const Goods = () => {
     dispatch(fetchProducts({ category, q }));
   }, [dispatch, category, q]);
 
-  if (loading) return <div>Загрузка...</div>;
-  if (error) return <div>Ошибка: {error}</div>;
+  if (loading) return <Container><div>Загрузка...</div></Container>;
+  if (error) return <Container><div>Ошибка: {error}</div></Container>;
 
 
   return (
     <section>
       <Container>
-
         <h2 className={classNames(s.title, 'visually-hidden')}>
           Список товаров
         </h2>
@@ -41,8 +40,7 @@ export const Goods = () => {
               </li>
             ))}
           </ul>
-        ) : <p>По ващему запросу ничего не найдено</p>}
-
+        ) : <p>По вашему запросу ничего не найдено</p>}
       </Container>
     </section>
   );

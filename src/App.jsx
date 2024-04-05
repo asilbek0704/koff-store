@@ -8,6 +8,7 @@ import { Catalog } from './views/Catalog/Catalog';
 import { Goods } from './views/Goods/Goods';
 import { Card } from './components/Card/Card';
 import { Cart } from './components/Cart/Cart';
+import { Container } from './views/Container/Container.jsx';
 
 const router = createBrowserRouter([
   {
@@ -100,7 +101,7 @@ const App = () => {
   }, [dispatch, accessToken]);
 
   if (loading) {
-    return <div>Загрузка...</div>;
+    return <Container><div>Загрузка...</div></Container>;
   }
 
   return <RouterProvider router={router} />;
