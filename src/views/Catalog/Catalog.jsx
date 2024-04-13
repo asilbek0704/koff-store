@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export const Catalog = () => {
   const dispatch = useDispatch();
-  const { data, loading, error } = useSelector(store => store.categories);
+  const { data, loading, error } = useSelector(state => state.categories);
 
   useEffect(() => {
     dispatch(fetchCategories());

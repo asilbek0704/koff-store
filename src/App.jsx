@@ -92,7 +92,7 @@ const router = createBrowserRouter([
 
 const App = () => {
   const dispatch = useDispatch();
-  const { accessToken, loading } = useSelector(store => store.auth);
+  const { accessToken, loading } = useSelector(state => state.auth);
 
   useEffect(() => {
     if (!accessToken) {

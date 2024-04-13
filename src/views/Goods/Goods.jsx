@@ -10,8 +10,8 @@ import { Pagination } from '../../components/Pagination/Pagination';
 
 export const Goods = () => {
   const dispatch = useDispatch();
-  const { data, loading, error, pagination } = useSelector(store => store.products);
-  const { favoriteList } = useSelector(store => store.favorite);
+  const { data, loading, error, pagination } = useSelector(state => state.products);
+  const { favoriteList } = useSelector(state => state.favorite);
 
   const [searchParam] = useSearchParams();
   const category = searchParam.get('category');

@@ -12,13 +12,13 @@ export const Main = () => {
     data: dataCategories,
     loading: loadingCategories,
     error: errorCategories,
-  } = useSelector((store) => store.categories);
+  } = useSelector((state) => state.categories);
 
   const {
     data: dataProducts,
     loading: loadingProducts,
     error: errorProducts,
-  } = useSelector((store) => store.products);
+  } = useSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(fetchCategories());
